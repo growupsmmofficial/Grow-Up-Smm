@@ -1,40 +1,45 @@
 <!DOCTYPE html><html>
 <head>
   <title>Login</title>
-</head>
-<body style="background:#0f172a;color:white;text-align:center;margin-top:50px;"><h2>GrowUp SMM Login 🚀</h2>
+</head><body style="background:#0f172a;color:white;text-align:center;margin-top:50px;"><h2>GrowUp SMM Login 🚀</h2>
 <button onclick="login()">Continue with Google</button><script>
+
 function login() {
 
   var client_id = "933918884194-cq1t4ssi5fg9ii60c13e2d1lstasmlhi.apps.googleusercontent.com";
 
-  var redirect_uri = encodeURIComponent("https://growupsmmofficial.github.io/Grow-Up-Smm/auth.html");
+  var redirect_uri = "https://growupsmmofficial.github.io/Grow-Up-Smm/auth.html";
 
-  var scope = encodeURIComponent("email profile");
+  var scope = "email profile";
 
   var url = "https://accounts.google.com/o/oauth2/v2/auth?" +
     "client_id=" + client_id +
-    "&redirect_uri=" + redirect_uri +
+    "&redirect_uri=" + encodeURIComponent(redirect_uri) +
     "&response_type=token" +
-    "&scope=" + scope +
+    "&scope=" + encodeURIComponent(scope) +
     "&prompt=select_account";
 
   window.location.href = url;
 }
 
-// 🔥 TOKEN CHECK (loop fix)
+// 🔥 FIXED TOKEN HANDLER
 window.onload = function() {
 
-  var hash = window.location.hash;
+  var fullUrl = window.location.href;
 
-  if (hash.includes("access_token")) {
+  if (fullUrl.includes("access_token")) {
 
-    var token = hash.split("access_token=")[1].split("&")[0];
+    // token extract
+    var token = fullUrl.split("access_token=")[1].split("&")[0];
 
-    // 👉 SUCCESS PAGE REDIRECT
+    // DEBUG (optional)
+    console.log("TOKEN:", token);
+
+    // 👉 redirect to success page
     window.location.href =
       "https://growupsmmofficial.github.io/Grow-Up-Smm/success.html?token=" + token;
   }
 };
+
 </script></body>
 </html>

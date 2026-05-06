@@ -1,0 +1,16 @@
+<!DOCTYPE html><html>
+<head>
+  <title>Success</title>
+</head><body style="background:black;color:white;text-align:center;margin-top:50px;"><h2>Login Successful ✅</h2>
+<p>You can go back to the app now</p><script>
+var url = window.location.href;
+
+// token extract
+var token = url.split("token=")[1];
+
+// save locally (optional)
+localStorage.setItem("token", token);
+
+console.log("TOKEN:", token);
+</script></body>
+</html>

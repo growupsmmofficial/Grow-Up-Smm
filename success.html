@@ -1,12 +1,56 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html><html lang="en">
 <head>
-  <title>Success</title>
-</head><body style="background:black;color:white;text-align:center;margin-top:50px;"><h2>Login Successful ✅</h2><script>
-var url = window.location.href;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Success</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-if (url.includes("token=")) {
-  var token = url.split("token=")[1];
-  console.log("TOKEN RECEIVED:", token);
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+  color:white;
+}
+
+.card{
+  width:320px;
+  padding:35px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+.success{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.text{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.small{
+  font-size:13px;
+  color:#94a3b8;
+}
+</style></head><body><div class="card">
+  <div class="success">✅</div>
+  <div class="text">Login Successful</div>
+  <div class="small">Return to App</div>
+</div><script>
+var url=window.location.href;
+
+if(url.includes("token=")){
+  var token=url.split("token=")[1];
+  console.log("TOKEN:",token);
+
+  // future use (save/send)
+  localStorage.setItem("token",token);
 }
 </script></body>
 </html>

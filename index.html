@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Service Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="bg-orb orb3"></div>
+
+<div class="app">
+
+    <header class="header">
+        <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div>
+                <h1>Service Manager</h1>
+                <p>Personal category, service and link organizer</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button type="button" id="exportBtn" class="ghost-btn">Export</button>
+            <label class="ghost-btn file-btn">
+                Import
+                <input type="file" id="importFile" accept="application/json">
+            </label>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <span class="badge">PRIVATE TOOL</span>
+            <h2>Open your saved service links fast.</h2>
+            <p>Select category, choose service and jump directly to its connected link.</p>
+        </div>
+    </section>
+
+    <main class="grid">
+
+        <section class="panel form-panel">
+            <h3>Add / Update Service</h3>
+
+            <input type="hidden" id="editId">
+
+            <label>Category</label>
+            <input type="text" id="categoryInput" placeholder="Example: Instagram">
+
+            <label>Service Name</label>
+            <input type="text" id="serviceInput" placeholder="Example: Followers High Quality">
+
+            <label>Service Link</label>
+            <input type="url" id="linkInput" placeholder="https://example.com/service">
+
+            <label>Note / Description</label>
+            <textarea id="noteInput" placeholder="Optional note..."></textarea>
+
+            <div class="form-actions">
+                <button type="button" id="saveBtn" class="primary-btn">Add Service</button>
+                <button type="button" id="clearBtn" class="secondary-btn">Clear</button>
+            </div>
+        </section>
+
+        <section class="panel quick-panel">
+            <h3>Quick Open</h3>
+
+            <label>Select Category</label>
+            <select id="categorySelect">
+                <option value="">Select Category</option>
+            </select>
+
+            <label>Select Service</label>
+            <select id="serviceSelect">
+                <option value="">Select Service</option>
+            </select>
+
+            <div class="selected-preview" id="selectedPreview">
+                <span>No service selected</span>
+            </div>
+
+            <button type="button" id="openBtn" class="open-btn">Open Link</button>
+        </section>
+
+    </main>
+
+    <section class="panel list-panel">
+        <div class="list-header">
+            <div>
+                <h3>Saved Services</h3>
+                <p id="totalCount">0 services saved</p>
+            </div>
+
+            <input type="text" id="searchInput" placeholder="Search category, service or link...">
+        </div>
+
+        <div id="serviceList" class="service-list"></div>
+    </section>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
